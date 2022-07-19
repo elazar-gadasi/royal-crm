@@ -14,8 +14,25 @@ import { RightTopNavComponent } from './layout/header/top-nav/right-top-nav/righ
 import { LoggedComponent } from './layout/header/top-nav/right-top-nav/logged/logged.component';
 import { NotLoggedComponent } from './layout/header/top-nav/right-top-nav/not-logged/not-logged.component';
 
+import { ContactsPageComponent } from './pages/contacts/contacts-page/contacts-page.component';
+
 @NgModule({
-  declarations: [AppComponent, CustomersPageComponent, HeaderComponent, FooterComponent, MainComponent, SideNavComponent, LogoComponent, HamburgerComponent, LeftTopNavComponent, RightTopNavComponent, LoggedComponent, NotLoggedComponent],
+  declarations: [
+    AppComponent,
+    CustomersPageComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainComponent,
+    SideNavComponent,
+    LogoComponent,
+    HamburgerComponent,
+    LeftTopNavComponent,
+    RightTopNavComponent,
+    LoggedComponent,
+    NotLoggedComponent,
+
+    ContactsPageComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
