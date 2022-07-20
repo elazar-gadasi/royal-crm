@@ -15,6 +15,8 @@ import { LoggedComponent } from './layout/header/top-nav/right-top-nav/logged/lo
 import { NotLoggedComponent } from './layout/header/top-nav/right-top-nav/not-logged/not-logged.component';
 
 import { ContactsPageComponent } from './pages/contacts/contacts-page/contacts-page.component';
+import { NavLinkTopComponent } from './layout/header/nav-link-top/nav-link-top.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ContactsPageComponent } from './pages/contacts/contacts-page/contacts-p
     NotLoggedComponent,
 
     ContactsPageComponent,
+     NavLinkTopComponent,
+     PageHeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
