@@ -17,6 +17,7 @@ import { NotLoggedComponent } from './layout/header/top-nav/right-top-nav/not-lo
 import { ContactsPageComponent } from './pages/contacts/contacts-page/contacts-page.component';
 import { NavLinkTopComponent } from './layout/header/nav-link-top/nav-link-top.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { RandomNumPipe } from './pipes/radomNum/random-num.pipe';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     NotLoggedComponent,
 
     ContactsPageComponent,
-     NavLinkTopComponent,
-     PageHeaderComponent,
+    NavLinkTopComponent,
+    PageHeaderComponent,
+    RandomNumPipe,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

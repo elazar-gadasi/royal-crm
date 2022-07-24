@@ -1,5 +1,8 @@
-<div class="bg-success p-2 text-success" style="--bs-bg-opacity: 0.3">
-  <h1 class="display-1"><i [ngClass]="icon"></i>{{ titel }}</h1>
-  <p class="fs-3">{{ subTitel }}</p>
+<div class="col-12 rounded-3 p-2" [ngClass]="bgColor">
+  <h1 class="display-1"><i [ngClass]="icon"></i>{{ titel | titlecase }}</h1>
+  <h2 class="fs-3 fw-light">
+    {{ subTitel.charAt(0).toUpperCase() + subTitel.slice(1).toLowerCase() }}
+  </h2>
+
   <hr />
 </div>

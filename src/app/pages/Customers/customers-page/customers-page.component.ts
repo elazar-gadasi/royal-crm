@@ -10,8 +10,7 @@ export class CustomersPageComponent {
   customers: Array<Customer> = [];
   titel: string = 'Customers Page';
   subTitel: string = 'Thus is customers page';
-  icon: string = 'bi bi-people-fill';
-
+  icon: string = 'fas fa-users';
   constructor() {
     this.customers.push({
       _id: '1',
