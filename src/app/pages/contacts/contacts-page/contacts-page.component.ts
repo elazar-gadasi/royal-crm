@@ -8,7 +8,9 @@ import { Contacts } from '../contacts.component';
 })
 export class ContactsPageComponent {
   Contacts: Array<Contacts> = [];
-
+  titel: string = 'Contacts Page';
+  subTitel: string = 'this is Contacts page';
+  icon: string = 'fas fa-users';
   constructor() {
     this.Contacts.push({
       _id: '1',
@@ -24,7 +26,7 @@ export class ContactsPageComponent {
         zip: 1234,
       },
       createdAt: new Date(),
-      notes: 'a very good customer!',
+      notes: 'a very good Contact!',
     });
   }
 }

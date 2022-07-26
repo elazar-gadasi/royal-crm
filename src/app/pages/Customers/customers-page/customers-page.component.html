@@ -1,6 +1,11 @@
-<page-header [titel]="titel" [icon]="icon" [subTitel]="subTitel"></page-header>
+<page-header
+  bgColor="alert-success"
+  [titel]="titel"
+  [icon]="icon"
+  [subTitel]="subTitel"
+></page-header>
 
-<table class="table">
+<table *ngIf="customers.length; else noCustomers" class="table">
   <thead>
     <tr>
       <th>Num.</th>
@@ -20,3 +25,8 @@
     </tr>
   </tbody>
 </table>
+<ng-template #noCustomers>
+  <div>
+    {{ "opss... no customers!!!" | textCapital }}
+  </div>
+</ng-template>

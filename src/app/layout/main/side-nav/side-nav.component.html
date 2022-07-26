@@ -1,1 +1,15 @@
-<p class="text-light">side-nav works!</p>
+<div *ngIf="links.length; else noLinks">
+  <ul *ngFor="let link of links">
+    <link-side-nav
+      [text]="link.text"
+      [icon]="link.icon"
+      [link]="link.link"
+    ></link-side-nav>
+  </ul>
+</div>
+
+<ng-template #noLinks>
+  <div class="text-light">
+    {{ "opss.. no links" | textCapital }}
+  </div>
+</ng-template>

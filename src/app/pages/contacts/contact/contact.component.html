@@ -1,11 +1,4 @@
-<page-header
-  [titel]="titel"
-  [icon]="icon"
-  bgColor="alert-danger"
-  [subTitel]="subTitel"
-></page-header>
-<app-contact [Contacts]="Contacts"></app-contact>
-<!-- <table *ngIf="Contacts.length; else noContacts" class="table">
+<table *ngIf="Contacts.length; else noContacts" class="table">
   <thead>
     <tr>
       <th>Num.</th>
@@ -24,11 +17,9 @@
       <td>{{ contacn.email }}</td>
     </tr>
   </tbody>
-
-  <app-contact [Contacts]="Contacts"></app-contact>
 </table>
 <ng-template #noContacts>
   <div>
     {{ "opss... no Contacts!!!" | textCapital }}
   </div>
-</ng-template> -->
+</ng-template>

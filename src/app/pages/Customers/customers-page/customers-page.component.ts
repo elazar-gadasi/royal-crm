@@ -9,7 +9,7 @@ import { Customer } from '../customer';
 export class CustomersPageComponent {
   customers: Array<Customer> = [];
   titel: string = 'Customers Page';
-  subTitel: string = 'Thus is customers page';
+  subTitel: string = 'this is customers page';
   icon: string = 'fas fa-users';
   constructor() {
     this.customers.push({
