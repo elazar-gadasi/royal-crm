@@ -1,5 +1,10 @@
-<li>
-  <a [href]="link">
-    <i [ngClass]="icon"></i><span class="text-light">{{ text }}</span></a
+<li class="col-12 p-0">
+  <a
+    routerLinkActive="top-nav-active"
+    [routerLink]="link"
+    class="nav-link text-light px-2 px-sm-3"
+  >
+    <i [ngClass]="icon"></i
+    ><span class="mx-2 d-none d-lg-inline">{{ text | titlecase }}</span></a
   >
 </li>

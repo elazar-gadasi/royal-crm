@@ -1,12 +1,11 @@
-<div *ngIf="links.length; else noLinks">
-  <ul *ngFor="let link of links">
-    <link-side-nav
-      [text]="link.text"
-      [icon]="link.icon"
-      [link]="link.link"
-    ></link-side-nav>
-  </ul>
-</div>
+<ul class="p-0" *ngIf="links.length; else noLinks">
+  <link-side-nav
+    *ngFor="let link of links"
+    [text]="link.text"
+    [icon]="link.icon"
+    [link]="link.link"
+  ></link-side-nav>
+</ul>
 
 <ng-template #noLinks>
   <div class="text-light">

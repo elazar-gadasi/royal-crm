@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contacts } from '../contacts.component';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'contacts-page',
@@ -11,22 +12,7 @@ export class ContactsPageComponent {
   titel: string = 'Contacts Page';
   subTitel: string = 'this is Contacts page';
   icon: string = 'fas fa-users';
-  constructor() {
-    this.Contacts.push({
-      _id: '1',
-      firstName: 'Regular',
-      lastName: 'User',
-      email: 'user@gmail.com',
-      phone: '050-0000000',
-      address: {
-        country: 'israel',
-        city: 'tel-aviv',
-        street: 'rotshild',
-        houseNumber: 0,
-        zip: 1234,
-      },
-      createdAt: new Date(),
-      notes: 'a very good Contact!',
-    });
+  constructor(SC: ContactsService) {
+    this.Contacts = SC.getAll();
   }
 }

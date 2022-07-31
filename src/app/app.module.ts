@@ -20,6 +20,12 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { textCapitalPipe } from './pipes/textCapital/sub-tite.pipe';
 import { ContactComponent } from './pages/contacts/contact/contact.component';
 import { LinkSideNavComponent } from './layout/main/side-nav/link-side-nav/link-side-nav.component';
+import { ErroPageComponent } from './pages/erro-page/erro-page.component';
+import { AboutComponent } from './pages/about/about.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { CustomerComponent } from './pages/Customers/customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +48,12 @@ import { LinkSideNavComponent } from './layout/main/side-nav/link-side-nav/link-
     textCapitalPipe,
     ContactComponent,
     LinkSideNavComponent,
+    ErroPageComponent,
+    AboutComponent,
+    LoginComponent,
+    SignupComponent,
+    LogoutComponent,
+    CustomerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

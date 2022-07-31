@@ -1,32 +1,7 @@
 <page-header
-  bgColor="alert-success"
   [titel]="titel"
   [icon]="icon"
+  bgColor="alert-success"
   [subTitel]="subTitel"
 ></page-header>
-
-<table *ngIf="customers.length; else noCustomers" class="table">
-  <thead>
-    <tr>
-      <th>Num.</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Phone</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ customers.length }}</td>
-      <td>{{ customers[0].firstName }}</td>
-      <td>{{ customers[0].lastName }}</td>
-      <td>{{ customers[0].phone }}</td>
-      <td>{{ customers[0].email }}</td>
-    </tr>
-  </tbody>
-</table>
-<ng-template #noCustomers>
-  <div>
-    {{ "opss... no customers!!!" | textCapital }}
-  </div>
-</ng-template>
+<app-customer [Customers]="Customers"></app-customer>

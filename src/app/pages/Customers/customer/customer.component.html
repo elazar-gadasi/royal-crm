@@ -1,4 +1,4 @@
-<table *ngIf="Contacts.length; else noContacts" class="table">
+<table *ngIf="Customers.length; else noCustomers" class="table">
   <thead>
     <tr>
       <th>Num.</th>
@@ -10,18 +10,18 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let contacn of Contacts; index as i; odd as odd"
+      *ngFor="let Customer of Customers; index as i; odd as odd"
       [ngClass]="odd ? 'alert-success' : 'bg-light'"
     >
       <td>{{ i + 1 }}</td>
-      <td>{{ contacn.firstName }}</td>
-      <td>{{ contacn.lastName }}</td>
-      <td>{{ contacn.phone }}</td>
-      <td>{{ contacn.email }}</td>
+      <td>{{ Customer.firstName }}</td>
+      <td>{{ Customer.lastName }}</td>
+      <td>{{ Customer.phone }}</td>
+      <td>{{ Customer.email }}</td>
     </tr>
   </tbody>
 </table>
-<ng-template #noContacts>
+<ng-template #noCustomers>
   <div>
     {{ "opss... no Contacts!!!" | textCapital }}
   </div>

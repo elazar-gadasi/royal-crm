@@ -1,34 +1,7 @@
 <page-header
   [titel]="titel"
   [icon]="icon"
-  bgColor="alert-danger"
+  bgColor="alert-success"
   [subTitel]="subTitel"
 ></page-header>
 <app-contact [Contacts]="Contacts"></app-contact>
-<!-- <table *ngIf="Contacts.length; else noContacts" class="table">
-  <thead>
-    <tr>
-      <th>Num.</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Phone</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let contacn of Contacts; index as i">
-      <td>{{ i + 1 }}</td>
-      <td>{{ contacn.firstName }}</td>
-      <td>{{ contacn.lastName }}</td>
-      <td>{{ contacn.phone }}</td>
-      <td>{{ contacn.email }}</td>
-    </tr>
-  </tbody>
-
-  <app-contact [Contacts]="Contacts"></app-contact>
-</table>
-<ng-template #noContacts>
-  <div>
-    {{ "opss... no Contacts!!!" | textCapital }}
-  </div>
-</ng-template> -->

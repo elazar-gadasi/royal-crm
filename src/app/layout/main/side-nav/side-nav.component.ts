@@ -10,12 +10,12 @@ export class SideNavComponent {
     {
       text: 'link-contacts',
       icon: 'fas fa-users',
-      link: '../../../pages/contacts/contacts-page/contacts-page.component.html',
+      link: 'contacts',
     },
     {
       text: 'link-customers',
-      icon: 'fas fa-users',
-      link: '../../../pages/Customers/customers-page/customers-page.component.html',
+      icon: 'fas fa-address-book',
+      link: 'customers',
     },
   ];
   constructor() {}
