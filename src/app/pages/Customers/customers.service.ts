@@ -5,7 +5,7 @@ import { Customer } from './customer';
   providedIn: 'root',
 })
 export class CustomersService {
-  private Customers: Array<Customer> = [
+  private customers: Array<Customer> = [
     {
       _id: '1',
       firstName: 'Regular',
@@ -41,6 +41,10 @@ export class CustomersService {
   ];
   constructor() {}
   getAll(): Customer[] {
-    return this.Customers;
+    return this.customers;
+  }
+  add(customer: Customer) {
+    customer._id = String(this.customers.length) + new Date() + Math.random();
+    return this.customers.push({ ...customer, createdAt: new Date() });
   }
 }

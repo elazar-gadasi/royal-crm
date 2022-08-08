@@ -4,4 +4,14 @@
   bgColor="alert-success"
   [subTitel]="subTitel"
 ></page-header>
+<div class="mt-3">
+  <a
+    class="btn btn-outline-success"
+    routerLink="new-contact"
+    role="button"
+    title="Add new contact"
+  >
+    {{ "add contact" | textCapital }}</a
+  >
+</div>
 <app-contact [Contacts]="Contacts"></app-contact>

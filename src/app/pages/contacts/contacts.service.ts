@@ -43,4 +43,8 @@ export class ContactsService {
   getAll(): Contacts[] {
     return this.Contacts;
   }
+  add(contacts: Contacts) {
+    contacts._id = String(this.Contacts.length) + new Date() + Math.random();
+    return this.Contacts.push({ ...contacts, createdAt: new Date() });
+  }
 }

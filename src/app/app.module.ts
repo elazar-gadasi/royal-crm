@@ -26,6 +26,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { CustomerComponent } from './pages/Customers/customer/customer.component';
+import { FormsModule } from '@angular/forms';
+import { NewCustomerComponent } from './pages/Customers/new-customer/new-customer.component';
+import { CustomerFormComponent } from './pages/Customers/customer-form/customer-form.component';
+import { NewContactComponent } from './pages/contacts/new-contact/new-contact.component';
+import { ContactFormComponent } from './pages/contacts/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +59,12 @@ import { CustomerComponent } from './pages/Customers/customer/customer.component
     SignupComponent,
     LogoutComponent,
     CustomerComponent,
+    NewCustomerComponent,
+    CustomerFormComponent,
+    NewContactComponent,
+    ContactFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

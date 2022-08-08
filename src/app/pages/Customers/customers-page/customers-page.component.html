@@ -4,4 +4,13 @@
   bgColor="alert-success"
   [subTitel]="subTitel"
 ></page-header>
+<div class="mt-3">
+  <a
+    routerLink="new-customer"
+    class="btn btn-outline-success"
+    title="Add new customer"
+    role="button"
+    >{{ "add customer" | textCapital }}</a
+  >
+</div>
 <app-customer [Customers]="Customers"></app-customer>
