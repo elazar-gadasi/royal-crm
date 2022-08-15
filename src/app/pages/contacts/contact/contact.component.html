@@ -6,18 +6,37 @@
       <th>Surname</th>
       <th>Phone</th>
       <th>Email</th>
+      <th>Edite</th>
+      <th>Delite</th>
     </tr>
   </thead>
   <tbody>
     <tr
-      *ngFor="let contacn of Contacts; index as i; odd as odd"
+      *ngFor="let contact of Contacts; index as i; odd as odd"
       [ngClass]="odd ? 'alert-success' : 'bg-light'"
+      [routerLink]="['contact-delits', contact._id]"
     >
       <td>{{ i + 1 }}</td>
-      <td>{{ contacn.firstName }}</td>
-      <td>{{ contacn.lastName }}</td>
-      <td>{{ contacn.phone }}</td>
-      <td>{{ contacn.email }}</td>
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.email }}</td>
+      <td>
+        <a
+          class="btn btn-outline-success"
+          [routerLink]="['contact-edit', contact._id]"
+          role="button"
+          ><i class="fas fa-pen"></i
+        ></a>
+      </td>
+      <td>
+        <button
+          class="btn btn-outline-success"
+          (click)="delideContact($event, contact._id!)"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

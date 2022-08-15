@@ -32,6 +32,11 @@ import { CustomerFormComponent } from './pages/Customers/customer-form/customer-
 import { NewContactComponent } from './pages/contacts/new-contact/new-contact.component';
 import { ContactFormComponent } from './pages/contacts/contact-form/contact-form.component';
 
+import { ContactDetailsComponent } from './pages/contacts/contact-details/contact-details.component';
+import { ContactEditComponent } from './pages/contacts/contact-edit/contact-edit.component';
+import { CustomerDetailsComponent } from './pages/Customers/customer-details/customer-details.component';
+import { CustomerEditComponent } from './pages/Customers/customer-edit/customer-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +68,11 @@ import { ContactFormComponent } from './pages/contacts/contact-form/contact-form
     CustomerFormComponent,
     NewContactComponent,
     ContactFormComponent,
+
+    ContactDetailsComponent,
+     ContactEditComponent,
+     CustomerDetailsComponent,
+     CustomerEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

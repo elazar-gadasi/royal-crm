@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AboutComponent } from '../pages/about/about.component';
+
+import { ContactDetailsComponent } from '../pages/contacts/contact-details/contact-details.component';
+import { ContactEditComponent } from '../pages/contacts/contact-edit/contact-edit.component';
 import { ContactsPageComponent } from '../pages/contacts/contacts-page/contacts-page.component';
 import { NewContactComponent } from '../pages/contacts/new-contact/new-contact.component';
 import { CustomersPageComponent } from '../pages/Customers/customers-page/customers-page.component';
@@ -16,6 +19,8 @@ const routes: Routes = [
   { path: 'customers', component: CustomersPageComponent },
   { path: 'customers/new-customer', component: NewCustomerComponent },
   { path: 'contacts/new-contact', component: NewContactComponent },
+  { path: 'contacts/contact-delits/:id', component: ContactDetailsComponent },
+  { path: 'contacts/contact-edit/:id', component: ContactEditComponent },
 
   { path: 'about', component: AboutComponent },
   { path: 'logout', component: LogoutComponent },

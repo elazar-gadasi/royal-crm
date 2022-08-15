@@ -23,10 +23,10 @@ export class ContactsService {
       notes: 'a very good Contact!',
     },
     {
-      _id: '1',
-      firstName: 'Regular',
-      lastName: 'User',
-      email: 'user@gmail.com',
+      _id: '2',
+      firstName: 'elazar',
+      lastName: 'gadasi',
+      email: 'elazar@gmail.com',
       phone: '050-0000000',
       address: {
         country: 'israel',
@@ -46,5 +46,25 @@ export class ContactsService {
   add(contacts: Contacts) {
     contacts._id = String(this.Contacts.length) + new Date() + Math.random();
     return this.Contacts.push({ ...contacts, createdAt: new Date() });
+  }
+  delide(id: string) {
+    let contactIndex = this.Contacts.findIndex(
+      (contact: Contacts) => contact._id === id
+    );
+    if (contactIndex === -1) return;
+    this.Contacts.splice(contactIndex, 1);
+  }
+  getContact(id: string, cb: Function): Contacts | void {
+    const contact = this.Contacts.find(
+      (contactFromDb: Contacts) => contactFromDb._id === id
+    );
+    return cb(contact);
+  }
+  edit(Contact: Contacts) {
+    let index = this.Contacts.findIndex(
+      (contactFromDb) => contactFromDb._id === Contact._id
+    );
+    if (index === -1) return;
+    this.Contacts[index] = Contact;
   }
 }

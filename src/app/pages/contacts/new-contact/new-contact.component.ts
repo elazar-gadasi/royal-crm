@@ -11,8 +11,8 @@ import { ContactsService } from '../contacts.service';
 export class NewContactComponent {
   constructor(private CS: ContactsService, private routerService: Router) {}
 
-  onSumbit(customer: Contacts) {
-    this.CS.add(customer);
+  onSumbit(contact: Contacts) {
+    this.CS.add(contact);
     this.routerService.navigate(['/contacts']);
   }
 }
