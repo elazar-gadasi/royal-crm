@@ -7,6 +7,8 @@ import { ContactDetailsComponent } from '../pages/contacts/contact-details/conta
 import { ContactEditComponent } from '../pages/contacts/contact-edit/contact-edit.component';
 import { ContactsPageComponent } from '../pages/contacts/contacts-page/contacts-page.component';
 import { NewContactComponent } from '../pages/contacts/new-contact/new-contact.component';
+import { CustomerDetailsComponent } from '../pages/Customers/customer-details/customer-details.component';
+import { CustomerEditComponent } from '../pages/Customers/customer-edit/customer-edit.component';
 import { CustomersPageComponent } from '../pages/Customers/customers-page/customers-page.component';
 import { NewCustomerComponent } from '../pages/Customers/new-customer/new-customer.component';
 import { ErroPageComponent } from '../pages/erro-page/erro-page.component';
@@ -20,7 +22,12 @@ const routes: Routes = [
   { path: 'customers/new-customer', component: NewCustomerComponent },
   { path: 'contacts/new-contact', component: NewContactComponent },
   { path: 'contacts/contact-delits/:id', component: ContactDetailsComponent },
+  {
+    path: 'customers/customer-delits/:id',
+    component: CustomerDetailsComponent,
+  },
   { path: 'contacts/contact-edit/:id', component: ContactEditComponent },
+  { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
 
   { path: 'about', component: AboutComponent },
   { path: 'logout', component: LogoutComponent },

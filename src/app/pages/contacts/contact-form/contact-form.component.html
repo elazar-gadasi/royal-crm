@@ -57,6 +57,47 @@
         "last name mast be at list two characters" | textCapital
       }}</span>
     </div>
+    <div class="col-md-5 mb-2 form-group">
+      <label for="birthDay"
+        ><span class="text-danger">*</span> {{ "birthDay" | titlecase }}</label
+      ><input
+        [(ngModel)]="contact.birthDay"
+        #birthDayField="ngModel"
+        name="birthDay"
+        id="birthDay"
+        type="date"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': birthDayField.invalid && birthDayField.touched,
+          'is-valid': birthDayField.valid && birthDayField.touched
+        }"
+      />
+      <span class="invalid-feedback">{{
+        "birthDay mast be at list two characters" | textCapital
+      }}</span>
+    </div>
+    <div class="col-md-5 mb-2 form-group">
+      <label for="ID"><span class="text-danger">*</span> {{ "ID" }}</label
+      ><input
+        [(ngModel)]="contact.ID"
+        #IDField="ngModel"
+        name="ID"
+        id="ID"
+        type="number"
+        class="form-control"
+        required
+        minlength="7"
+        pattern="[0-9]{8,}"
+        [ngClass]="{
+          'is-invalid': IDField.invalid && IDField.touched,
+          'is-valid': IDField.valid && IDField.touched
+        }"
+      />
+      <span class="invalid-feedback">{{
+        "ID mast be at list two characters" | textCapital
+      }}</span>
+    </div>
   </div>
 
   <!-- דרכי התקשרות -->
@@ -282,6 +323,8 @@
       ></textarea>
     </div>
   </div>
+
+  <!-- כפתורים -->
   <div class="p-3 text-center">
     <a
       routerLink="/contacts"

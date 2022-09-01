@@ -12,6 +12,9 @@ export class ContactsService {
       lastName: 'User',
       email: 'user@gmail.com',
       phone: '050-0000000',
+      birthDay: '07/07/2012',
+      ID: 234234320,
+
       address: {
         country: 'israel',
         city: 'tel-aviv',
@@ -28,6 +31,9 @@ export class ContactsService {
       lastName: 'gadasi',
       email: 'elazar@gmail.com',
       phone: '050-0000000',
+      ID: 343434320,
+      birthDay: '01/09/2000',
+
       address: {
         country: 'israel',
         city: 'tel-aviv',

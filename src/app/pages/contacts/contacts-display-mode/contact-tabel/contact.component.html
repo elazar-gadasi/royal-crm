@@ -6,6 +6,8 @@
       <th>Surname</th>
       <th>Phone</th>
       <th>Email</th>
+      <th>ID</th>
+      <th>age</th>
       <th>Edite</th>
       <th>Delite</th>
     </tr>
@@ -21,6 +23,9 @@
       <td>{{ contact.lastName }}</td>
       <td>{{ contact.phone }}</td>
       <td>{{ contact.email }}</td>
+
+      <td>{{ contact.ID }}</td>
+      <td>{{ contact.birthDay | age }}</td>
       <td>
         <a
           class="btn btn-outline-success"

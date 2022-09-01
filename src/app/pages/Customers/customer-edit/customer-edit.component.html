@@ -1,1 +1,17 @@
-<p>customer-edit works!</p>
+<page-header
+  title="Edit customer"
+  subtitle="Hear you can edit your customer edit"
+  icon="fas fa-user-edit"
+></page-header>
+
+<customer-form
+  *ngIf="customer; else noCustomer"
+  [customer]="customer"
+  (reset)="resetForm()"
+  (submit)="onSubmit($event)"
+></customer-form>
+
+<ng-template #noCustomer>{{
+  "Oops it looks like there is no customer with this ID in the database"
+    | textCapital
+}}</ng-template>

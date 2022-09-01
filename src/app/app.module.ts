@@ -18,7 +18,7 @@ import { ContactsPageComponent } from './pages/contacts/contacts-page/contacts-p
 import { NavLinkTopComponent } from './layout/header/nav-link-top/nav-link-top.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { textCapitalPipe } from './pipes/textCapital/sub-tite.pipe';
-import { ContactComponent } from './pages/contacts/contact/contact.component';
+import { ContactTabelComponent } from './pages/contacts/contacts-display-mode/contact-tabel/contact.component';
 import { LinkSideNavComponent } from './layout/main/side-nav/link-side-nav/link-side-nav.component';
 import { ErroPageComponent } from './pages/erro-page/erro-page.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -36,6 +36,10 @@ import { ContactDetailsComponent } from './pages/contacts/contact-details/contac
 import { ContactEditComponent } from './pages/contacts/contact-edit/contact-edit.component';
 import { CustomerDetailsComponent } from './pages/Customers/customer-details/customer-details.component';
 import { CustomerEditComponent } from './pages/Customers/customer-edit/customer-edit.component';
+import { AgePipe } from './pipes/age/age.pipe';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DisplayModeControllersComponent } from './components/display-mode-controllers/display-mode-controllers.component';
+import { ContactFoldersComponent } from './pages/contacts/contacts-display-mode/contact-folders/contact-folders.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,7 @@ import { CustomerEditComponent } from './pages/Customers/customer-edit/customer-
     NavLinkTopComponent,
     PageHeaderComponent,
     textCapitalPipe,
-    ContactComponent,
+    ContactTabelComponent,
     LinkSideNavComponent,
     ErroPageComponent,
     AboutComponent,
@@ -70,9 +74,13 @@ import { CustomerEditComponent } from './pages/Customers/customer-edit/customer-
     ContactFormComponent,
 
     ContactDetailsComponent,
-     ContactEditComponent,
-     CustomerDetailsComponent,
-     CustomerEditComponent,
+    ContactEditComponent,
+    CustomerDetailsComponent,
+    CustomerEditComponent,
+    AgePipe,
+    SearchBarComponent,
+    DisplayModeControllersComponent,
+    ContactFoldersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

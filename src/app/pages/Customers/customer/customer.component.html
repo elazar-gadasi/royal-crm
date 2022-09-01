@@ -6,6 +6,8 @@
       <th>Surname</th>
       <th>Phone</th>
       <th>Email</th>
+      <th>ID</th>
+      <th>age</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,24 @@
       <td>{{ Customer.lastName }}</td>
       <td>{{ Customer.phone }}</td>
       <td>{{ Customer.email }}</td>
+      <td>{{ Customer.ID }}</td>
+      <td>{{ Customer.birthDay | age }}</td>
+      <td>
+        <a
+          class="btn btn-outline-success"
+          [routerLink]="['customer-edit', Customer._id]"
+          role="button"
+          ><i class="fas fa-pen"></i
+        ></a>
+      </td>
+      <td>
+        <button
+          class="btn btn-outline-success"
+          (click)="delideCustomer($event, Customer._id!)"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -10,11 +10,15 @@ import { Contacts } from '../contacts.component';
 export class ContactFormComponent {
   @Output() submit = new EventEmitter();
   @Output() reset = new EventEmitter();
+
   @Input() contact: Contacts = {
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
+
+    birthDay: '',
+    ID: 0,
     address: {
       state: '',
       country: '',
@@ -27,7 +31,10 @@ export class ContactFormComponent {
   };
 
   onSubmit({ valid, value }: NgForm) {
-    if (valid) this.submit.emit(value);
+    if (valid) {
+      this.submit.emit(value);
+      console.log(this.contact.birthDay);
+    }
   }
 
   resetForm(form: NgForm) {

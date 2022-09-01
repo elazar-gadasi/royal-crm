@@ -19,6 +19,7 @@
         {{ "first name" | titlecase }}</label
       ><input
         id="firstName"
+        [(ngModel)]="customer.firstName"
         ngModel
         name="firstName"
         type="text"
@@ -40,7 +41,8 @@
       <label for="zip"
         ><span class="text-danger">*</span> {{ "last name" | titlecase }}</label
       ><input
-        ngModel
+        [(ngModel)]="customer.lastName"
+        id="lastName"
         #lastNameField="ngModel"
         name="lastName"
         type="text"
@@ -54,6 +56,48 @@
       />
       <span class="invalid-feedback">{{
         "last name mast be at list two characters" | textCapital
+      }}</span>
+    </div>
+    <div class="col-md-5 mb-2 form-group">
+      <label for="birthDay"
+        ><span class="text-danger">*</span> {{ "birthDay" | titlecase }}</label
+      ><input
+        [(ngModel)]="customer.birthDay"
+        #birthDayField="ngModel"
+        name="birthDay"
+        id="birthDay"
+        type="date"
+        class="form-control"
+        required
+        minlength="2"
+        [ngClass]="{
+          'is-invalid': birthDayField.invalid && birthDayField.touched,
+          'is-valid': birthDayField.valid && birthDayField.touched
+        }"
+      />
+      <span class="invalid-feedback">{{
+        "birthDay mast be at list two characters" | textCapital
+      }}</span>
+    </div>
+    <div class="col-md-5 mb-2 form-group">
+      <label for="ID"><span class="text-danger">*</span> {{ "ID" }}</label
+      ><input
+        [(ngModel)]="customer.ID"
+        #IDField="ngModel"
+        name="ID"
+        id="ID"
+        type="number"
+        class="form-control"
+        required
+        minlength="7"
+        pattern="[0-9]{8,}"
+        [ngClass]="{
+          'is-invalid': IDField.invalid && IDField.touched,
+          'is-valid': IDField.valid && IDField.touched
+        }"
+      />
+      <span class="invalid-feedback">{{
+        "ID mast be at list two characters" | textCapital
       }}</span>
     </div>
   </div>
@@ -71,7 +115,8 @@
       <label for="email"
         ><span class="text-danger">*</span> {{ "email" | titlecase }}</label
       ><input
-        ngModel
+        [(ngModel)]="customer.email"
+        id="email"
         #emailField="ngModel"
         name="email"
         type="email"
@@ -92,7 +137,8 @@
       <label for="phone"
         ><span class="text-danger">*</span> {{ "phone" | titlecase }}</label
       ><input
-        ngModel
+        [(ngModel)]="customer.phone"
+        id="phone"
         #phoneField="ngModel"
         name="phone"
         pattern="0[0-9]{1,2}\-?\s?[0-9]{3}\s?[0-9]{4}"
@@ -125,7 +171,8 @@
         <label for="firstName"
           ><span class="text-danger"></span> {{ "state" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.state"
+          id="state"
           #stateField="ngModel"
           name="state"
           type="text"
@@ -144,7 +191,8 @@
         <label for="country"
           ><span class="text-danger">*</span> {{ "country" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.country"
+          id="country"
           #countryField="ngModel"
           name="country"
           type="text"
@@ -167,7 +215,8 @@
         <label for="city"
           ><span class="text-danger">*</span> {{ "city" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.city"
+          id="city"
           name="city"
           type="text"
           class="form-control"
@@ -187,7 +236,8 @@
         <label for="street"
           ><span class="text-danger">*</span> {{ "street" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.street"
+          id="street"
           name="street"
           type="text"
           class="form-control"
@@ -211,7 +261,8 @@
           ><span class="text-danger">*</span>
           {{ "houseNumber" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.houseNumber"
+          id="houseNumber"
           name="houseNumber"
           type="number"
           class="form-control"
@@ -231,7 +282,8 @@
         <label for="zip"
           ><span class="text-danger"></span> {{ "zip" | titlecase }}</label
         ><input
-          ngModel
+          [(ngModel)]="customer.address.zip"
+          id="zip"
           name="number"
           type="text"
           class="form-control"
@@ -261,7 +313,8 @@
     <div class="col-md-10 mb-2">
       <label for="notes">{{ "notes" | titlecase }}</label>
       <textarea
-        ngModel
+        [(ngModel)]="customer.notes"
+        id="notes"
         name="notes"
         class="form-control"
         cols="30"

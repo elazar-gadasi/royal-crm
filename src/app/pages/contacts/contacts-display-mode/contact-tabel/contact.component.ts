@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { Contacts } from '../contacts.component';
-import { ContactsService } from '../contacts.service';
+import { Contacts } from '../../contacts.component';
+import { ContactsService } from '../../contacts.service';
 
 @Component({
-  selector: 'app-contact',
+  selector: 'contact-tabel',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  styleUrls: [],
 })
-export class ContactComponent {
+export class ContactTabelComponent {
   @Input() Contacts: Array<Contacts> = [];
 
   constructor(private CS: ContactsService) {}

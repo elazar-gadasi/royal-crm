@@ -9,4 +9,6 @@ export interface Customer {
   createdAt?: Date;
   address: Address;
   notes?: string;
+  ID: number;
+  birthDay: string;
 }

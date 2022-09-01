@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Customer } from '../customer';
 
 @Component({
   selector: 'customer-form',
@@ -7,11 +8,46 @@ import { NgForm } from '@angular/forms';
   styles: [],
 })
 export class CustomerFormComponent {
-  @Output() sumbit = new EventEmitter();
+  @Output() submit = new EventEmitter();
+  @Output() reset = new EventEmitter();
+  @Input() customer: Customer = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    birthDay: '',
+    ID: 0,
+    address: {
+      state: '',
+      country: '',
+      city: '',
+      street: '',
+      houseNumber: 0,
+      zip: 0,
+    },
+    notes: '',
+  };
+
   onSubmit({ valid, value }: NgForm) {
-    if (valid) return this.sumbit.emit(value);
+    if (valid) this.submit.emit(value);
   }
+
   resetForm(form: NgForm) {
-    form.resetForm();
+    // form.resetForm({
+    //   firstName: '',
+    //   lastName: '',
+    //   email: '',
+    //   phone: '',
+    //   address: {
+    //     state: '',
+    //     country: '',
+    //     city: '',
+    //     street: '',
+    //     houseNumber: 0,
+    //     zip: 0,
+    //   },
+    //   notes: '',
+    // });
+    this.reset.emit();
   }
 }

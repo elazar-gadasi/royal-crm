@@ -9,4 +9,7 @@ export interface Contacts {
   createdAt?: Date;
   address: Address;
   notes?: string;
+  ID: number;
+
+  birthDay: string;
 }
