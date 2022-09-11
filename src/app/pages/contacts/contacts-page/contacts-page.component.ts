@@ -10,7 +10,7 @@ import { ContactsService } from '../contacts.service';
   styles: [],
 })
 export class ContactsPageComponent {
-  contactRowData: Array<Contacts> | void = undefined;
+  contactRowData: Array<Contacts> = [];
   Contacts: Array<Contacts> = [];
   titel: string = 'Contacts Page';
   subTitel: string = 'this is Contacts page';
@@ -30,7 +30,7 @@ export class ContactsPageComponent {
   constructor(private SC: ContactsService) {
     this.Contacts = this.SC.getAll();
   }
-  deleteCustomer(array: Array<Contacts>) {
+  deleteContact(array: Array<Contacts>) {
     this.contactRowData = array;
     this.Contacts = this.contactRowData;
   }
@@ -43,6 +43,7 @@ export class ContactsPageComponent {
   }
   ngOnInit() {
     this.contactRowData = this.SC.getAll();
-    this.Contacts = [...this.contactRowData];
+
+    this.Contacts = this.contactRowData;
   }
 }

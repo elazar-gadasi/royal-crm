@@ -9,17 +9,18 @@ import { ContactsService } from '../contacts.service';
   styles: [],
 })
 export class ContactDetailsComponent implements OnInit {
+  createdAd: any;
   contact: Contacts | void = undefined;
   constructor(private router: ActivatedRoute, private CS: ContactsService) {}
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((param: ParamMap) => {
       const id = param.get('id');
-      const contact = this.CS.getContact(
-        id!,
-        (contact: Contacts | void) => (this.contact = contact)
-      );
-      if (contact) this.contact = contact;
+      this.CS.getContact(id!, (contact: Contacts) => {
+        this.contact = contact;
+        this.createdAd = new Date(contact.createdAt?.seconds * 1000);
+      });
+      // if (contact) this.contact = contact;
     });
   }
 }

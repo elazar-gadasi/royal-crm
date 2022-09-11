@@ -22,17 +22,25 @@
 </div>
 
 <search-bar
-  *ngIf="Contacts"
+  *ngIf="Contacts && Contacts.length"
   [categories]="categories"
   [array]="contactRowData"
   (onArrayFiltered)="onSearch($event)"
 ></search-bar>
-<app-contact-folders
-  [contacts]="Contacts"
-  *ngIf="display === 'folder'"
-></app-contact-folders>
+<div *ngIf="Contacts.length; else noContacts">
+  <app-contact-folders
+    [contacts]="Contacts"
+    *ngIf="display === 'folder'"
+  ></app-contact-folders>
 
-<contact-tabel
-  *ngIf="display === 'table'"
-  [Contacts]="Contacts"
-></contact-tabel>
+  <contact-tabel
+    *ngIf="display === 'table'"
+    [Contacts]="Contacts"
+    (onDeleteContact)="deleteContact($event)"
+  ></contact-tabel>
+</div>
+<ng-template #noContacts>
+  <div>
+    {{ "opss... no Contacts!!!" | textCapital }}
+  </div>
+</ng-template>

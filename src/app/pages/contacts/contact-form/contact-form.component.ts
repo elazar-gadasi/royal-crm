@@ -29,30 +29,29 @@ export class ContactFormComponent {
     },
     notes: '',
   };
-
+  @Input() btnText: string = 'submit';
   onSubmit({ valid, value }: NgForm) {
     if (valid) {
       this.submit.emit(value);
-      console.log(this.contact.birthDay);
     }
   }
 
   resetForm(form: NgForm) {
-    // form.resetForm({
-    //   firstName: '',
-    //   lastName: '',
-    //   email: '',
-    //   phone: '',
-    //   address: {
-    //     state: '',
-    //     country: '',
-    //     city: '',
-    //     street: '',
-    //     houseNumber: 0,
-    //     zip: 0,
-    //   },
-    //   notes: '',
-    // });
+    form.resetForm({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      address: {
+        state: '',
+        country: '',
+        city: '',
+        street: '',
+        houseNumber: 0,
+        zip: 0,
+      },
+      notes: '',
+    });
     this.reset.emit();
   }
 }

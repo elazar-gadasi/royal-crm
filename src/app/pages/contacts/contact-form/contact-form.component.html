@@ -1,6 +1,7 @@
 <form
   #contactForm="ngForm"
   autocomplete="off"
+  novalidate="novalidate"
   (ngSubmit)="onSubmit(contactForm)"
   class="form border rounded p-2"
 >
@@ -348,7 +349,7 @@
       class="btn btn-success ms-3"
       [disabled]="contactForm.form.invalid"
     >
-      {{ "add contact" | titlecase }}
+      {{ btnText | titlecase }}
     </button>
   </div>
 </form>

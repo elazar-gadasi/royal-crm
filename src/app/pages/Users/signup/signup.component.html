@@ -1,19 +1,20 @@
 <page-header
-  titel="login"
-  icon="fa-solid fa-sign-in"
-  bgColor="alert-success p-2 rounded"
-  subTitel="this is login page"
-  routerLink="Login Page"
+  titel="signup"
+  icon="fas fa-users"
+  bgColor="alert-info"
+  subTitel="this is signup page"
+  routerLink="signup"
 ></page-header>
-
 <div class="center mt-4">
   <form
     #loginForm="ngForm"
     (ngSubmit)="onSubmit(loginForm)"
-    class="col-12 col-md-6 col-xl-4 p-4 alert-success rounded"
+    class="col-12 col-md-6 col-xl-4 p-4 alert-info rounded"
   >
     <div class="form-group mb-2">
-      <label for="email">{{ "email" | titlecase }}</label>
+      <label for="email"
+        >{{ "email" | titlecase }} <span class="text-danger">*</span></label
+      >
       <input
         ngModel
         id="email"
@@ -22,9 +23,8 @@
         class="form-control"
         autocomplete="off"
         placeholder="user@gmail.com"
-        pattern=".+@.+\..{2,}"
         required
-        minlength="6"
+        pattern=".+@.+\..{2,}"
         #email="ngModel"
         [ngClass]="{
           'is-invalid': email.invalid && email.touched,
@@ -32,11 +32,14 @@
         }"
       />
       <span class="invalid-feedback">{{
-        "please enter valid email" | titlecase
+        "please enter a valid email" | textCapital
       }}</span>
     </div>
+
     <div class="form-group mb-2">
-      <label for="password">{{ "password" | titlecase }}</label>
+      <label for="password"
+        >{{ "password" | titlecase }} <span class="text-danger">*</span></label
+      >
       <input
         ngModel
         id="password"
@@ -44,9 +47,9 @@
         type="password"
         class="form-control"
         autocomplete="off"
-        pattern="((?=.*\d{1})(?=.*[A-Z]{1})(?=.*[a-z]{1})(?=.*[!@#$%^&*-]{1}).{7,20})"
+        placeholder="Aa1234!"
         required
-        minlength="8"
+        pattern="((?=.*\d{1})(?=.*[A-Z]{1})(?=.*[a-z]{1})(?=.*[!@#$%^&*-]{1}).{7,20})"
         #password="ngModel"
         [ngClass]="{
           'is-invalid': password.invalid && password.touched,
@@ -54,10 +57,17 @@
         }"
       />
       <span class="invalid-feedback">{{
-        "please enter valid password" | titlecase
+        "please enter a valid password" | textCapital
       }}</span>
     </div>
+
+    <div class="col-12 mb-2 text-center">
+      You are already registered?
+      <a routerLink="" class="fw-bold">Click hear...</a>
+    </div>
+
     <input
+      title="reset button"
       type="button"
       (click)="resetForm(loginForm)"
       value="Reset"
@@ -65,11 +75,24 @@
     />
 
     <button
+      [disabled]="loginForm.form.invalid"
       type="submit"
       class="col-12 btn btn-success"
-      [disabled]="loginForm.invalid"
     >
       {{ "submit" | titlecase }}
     </button>
+
+    <!-- <input
+      type="button"
+      value="Signup With Google"
+      class="btn btn-outline-dark col-12 my-2"
+      role="button"
+      title="Login with google"
+      (click)="signupWithGoogle()"
+    /> -->
+
+    <div *ngIf="error" class="text-center my-2 text-danger">
+      This user is already registered in the system
+    </div>
   </form>
 </div>

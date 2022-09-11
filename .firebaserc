@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "royal-crm-elazar-42320": {
+      "hosting": {
+        "royal-crm": [
+          "royal-crm-elazar-42320"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "royal-crm-elazar-42320"
+  }
+}

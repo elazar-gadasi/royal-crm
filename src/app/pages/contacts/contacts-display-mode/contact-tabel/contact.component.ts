@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Contacts } from '../../contacts.component';
+import { Component, Input, Output } from '@angular/core';
+
+import { EventEmitter } from '@angular/core';
+
 import { ContactsService } from '../../contacts.service';
 
 @Component({
@@ -8,12 +10,17 @@ import { ContactsService } from '../../contacts.service';
   styleUrls: [],
 })
 export class ContactTabelComponent {
-  @Input() Contacts: Array<Contacts> = [];
-
-  constructor(private CS: ContactsService) {}
+  @Input() Contacts: any = [];
+  @Output() onDeleteContact = new EventEmitter();
+  constructor(private CS: ContactsService) {
+    this.Contacts = CS.getAll();
+  }
 
   delideContact(e: MouseEvent, id: string) {
     e.stopPropagation();
     this.CS.delide(id);
+    this.Contacts = this.CS.getAll();
+
+    this.onDeleteContact.emit(this.Contacts);
   }
 }

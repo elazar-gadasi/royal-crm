@@ -12,9 +12,9 @@ import { CustomerEditComponent } from '../pages/Customers/customer-edit/customer
 import { CustomersPageComponent } from '../pages/Customers/customers-page/customers-page.component';
 import { NewCustomerComponent } from '../pages/Customers/new-customer/new-customer.component';
 import { ErroPageComponent } from '../pages/erro-page/erro-page.component';
-import { LoginComponent } from '../pages/login/login.component';
-import { LogoutComponent } from '../pages/logout/logout.component';
-import { SignupComponent } from '../pages/signup/signup.component';
+import { LoginComponent } from '../pages/Users/login/login.component';
+
+import { SignupComponent } from '../pages/Users/signup/signup.component';
 
 const routes: Routes = [
   { path: 'contacts', component: ContactsPageComponent },
@@ -30,8 +30,7 @@ const routes: Routes = [
   { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
 
   { path: 'about', component: AboutComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'login', component: LoginComponent },
+
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '**', component: ErroPageComponent },
