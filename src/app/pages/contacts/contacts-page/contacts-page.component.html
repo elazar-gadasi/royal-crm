@@ -4,43 +4,52 @@
   bgColor="alert-success"
   [subTitel]="subTitel"
 ></page-header>
-<div class="d-flex justify-content-between">
-  <div class="mt-3">
-    <a
-      class="btn btn-outline-success"
-      routerLink="new-contact"
-      role="button"
-      title="Add new contact"
-    >
-      {{ "add contact" | textCapital }}</a
-    >
-  </div>
-  <display-mode-controllers
-    [controllers]="controllers"
-    (onChangeDisplay)="onChangeDisplay($event)"
-  ></display-mode-controllers>
-</div>
 
-<search-bar
-  *ngIf="Contacts && Contacts.length"
-  [categories]="categories"
-  [array]="contactRowData"
-  (onArrayFiltered)="onSearch($event)"
-></search-bar>
-<div *ngIf="Contacts.length; else noContacts">
-  <app-contact-folders
-    [contacts]="Contacts"
-    *ngIf="display === 'folder'"
-  ></app-contact-folders>
-
-  <contact-tabel
-    *ngIf="display === 'table'"
-    [Contacts]="Contacts"
-    (onDeleteContact)="deleteContact($event)"
-  ></contact-tabel>
-</div>
-<ng-template #noContacts>
-  <div>
-    {{ "opss... no Contacts!!!" | textCapital }}
+<div *ngIf="dataReceived && Contacts && Contacts.length; else loader">
+  <div class="d-flex justify-content-between">
+    <div class="mt-3">
+      <a
+        class="btn btn-outline-success"
+        routerLink="new-contact"
+        role="button"
+        title="Add new contact"
+      >
+        {{ "add contact" | textCapital }}</a
+      >
+    </div>
+    <display-mode-controllers
+      [controllers]="controllers"
+      (onChangeDisplay)="onChangeDisplay($event)"
+    ></display-mode-controllers>
   </div>
+
+  <search-bar
+    *ngIf="Contacts && Contacts.length"
+    [categories]="categories"
+    [array]="contactRowData"
+    (onArrayFiltered)="onSearch($event)"
+  ></search-bar>
+  <div *ngIf="Contacts.length; else noContacts">
+    <app-contact-folders
+      [contacts]="Contacts"
+      *ngIf="display === 'folder'"
+    ></app-contact-folders>
+    <app-contact-cards
+      [contacts]="Contacts"
+      *ngIf="display === 'cards'"
+    ></app-contact-cards>
+    <contact-tabel
+      *ngIf="display === 'table'"
+      [Contacts]="Contacts"
+      (onDeleteContact)="deleteContact($event)"
+    ></contact-tabel>
+  </div>
+  <ng-template #noContacts>
+    <div>
+      {{ "opss... no Contacts!!!" | textCapital }}
+    </div>
+  </ng-template>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
 </ng-template>

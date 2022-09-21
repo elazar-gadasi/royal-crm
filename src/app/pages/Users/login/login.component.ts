@@ -21,7 +21,7 @@ export class LoginComponent {
       this.US.loginWithEmailAndPassword(value, (user: any): any => {
         if (user) {
           form.resetForm();
-          return this.router.navigate(['/customers']);
+          return this.router.navigate(['/contacts']);
         }
 
         this.error = true;
@@ -43,6 +43,11 @@ export class LoginComponent {
         }
       });
     }
+  }
+  loginWithGoogle() {
+    this.US.signupAndLoginWithGoogle((user: any): any => {
+      if (user) return this.router.navigate(['/contacts']);
+    });
   }
 
   resetForm(form: NgForm) {

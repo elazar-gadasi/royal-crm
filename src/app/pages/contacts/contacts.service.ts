@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
+  collection,
   addDoc,
   CollectionReference,
   deleteDoc,
@@ -11,7 +12,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from '@angular/fire/firestore';
-import { collection } from '@firebase/firestore';
+// import { collection } from '@firebase/firestore';
 
 import { Contacts } from './contacts.component';
 
@@ -19,66 +20,27 @@ import { Contacts } from './contacts.component';
   providedIn: 'root',
 })
 export class ContactsService {
-  // private Contacts: Array<Contacts> = [
-  //   {
-  //     _id: '1',
-  //     firstName: 'Regular',
-  //     lastName: 'User',
-  //     email: 'user@gmail.com',
-  //     phone: '050-0000000',
-  //     birthDay: '07/07/2012',
-  //     ID: 234234320,
-
-  //     address: {
-  //       country: 'israel',
-  //       city: 'tel-aviv',
-  //       street: 'rotshild',
-  //       houseNumber: 0,
-  //       zip: 1234,
-  //     },
-  //     createdAt: new Date(),
-  //     notes: 'a very good Contact!',
-  //   },
-  //   {
-  //     _id: '2',
-  //     firstName: 'elazar',
-  //     lastName: 'gadasi',
-  //     email: 'elazar@gmail.com',
-  //     phone: '050-0000000',
-  //     ID: 343434320,
-  //     birthDay: '01/09/2000',
-
-  //     address: {
-  //       country: 'israel',
-  //       city: 'tel-aviv',
-  //       street: 'rotshild',
-  //       houseNumber: 0,
-  //       zip: 1234,
-  //     },
-  //     createdAt: new Date(),
-  //     notes: 'a very good Contact!',
-  //   },
-  // ];
   constructor(private Fs: Firestore) {}
   collectionRef: CollectionReference<DocumentData> = collection(
     this.Fs,
     'contacts'
   );
 
-  getAll() {
+  getAll(cb: Function) {
     let contacts: any = [];
-    onSnapshot(this.collectionRef, (snapShotData) => {
+    const unsubscribeGetAll = onSnapshot(this.collectionRef, (snapShotData) => {
       snapShotData.docs.forEach((contact) => {
         contacts.push({ ...contact.data(), _id: contact.id });
       });
     });
 
-    return contacts;
+    return cb(contacts, unsubscribeGetAll);
   }
 
   add(contact: Contacts, cb: Function) {
     contact.createdAt = new Date();
-    contact.createdAt = serverTimestamp();
+    // contact.createdAt = serverTimestamp();
+
     addDoc(this.collectionRef, contact)
       .then(() => {
         cb();
@@ -101,7 +63,7 @@ export class ContactsService {
     try {
       const docRef = doc(this.Fs, 'contacts', id);
       const result = await getDoc(docRef);
-      const contact = { ...result.data() };
+      const contact = { ...result.data(), _id: result.id };
       cb(contact);
     } catch (error) {
       console.log(error);

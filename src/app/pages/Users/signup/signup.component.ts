@@ -32,6 +32,11 @@ export class SignupComponent {
       });
     }
   }
+  signupWithGoogle() {
+    this.US.signupAndLoginWithGoogle((user: any): any => {
+      if (user) return this.router.navigate(['/contacts']);
+    });
+  }
 
   resetForm(form: NgForm) {
     form.resetForm();

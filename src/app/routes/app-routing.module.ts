@@ -15,24 +15,55 @@ import { ErroPageComponent } from '../pages/erro-page/erro-page.component';
 import { LoginComponent } from '../pages/Users/login/login.component';
 
 import { SignupComponent } from '../pages/Users/signup/signup.component';
+import { AuthGuard } from './auth.guard';
+import { LoggedGuard } from './logged.guard';
 
 const routes: Routes = [
-  { path: 'contacts', component: ContactsPageComponent },
-  { path: 'customers', component: CustomersPageComponent },
-  { path: 'customers/new-customer', component: NewCustomerComponent },
-  { path: 'contacts/new-contact', component: NewContactComponent },
-  { path: 'contacts/contact-delits/:id', component: ContactDetailsComponent },
+  {
+    path: 'contacts',
+    component: ContactsPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'customers',
+    component: CustomersPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'customers/new-customer',
+    component: NewCustomerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contacts/new-contact',
+    component: NewContactComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contacts/contact-delits/:id',
+    component: ContactDetailsComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'customers/customer-delits/:id',
     component: CustomerDetailsComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'contacts/contact-edit/:id', component: ContactEditComponent },
-  { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
+  {
+    path: 'contacts/contact-edit/:id',
+    component: ContactEditComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'customers/customer-edit/:id',
+    component: CustomerEditComponent,
+    canActivate: [AuthGuard],
+  },
 
   { path: 'about', component: AboutComponent },
 
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: '', component: LoginComponent, canActivate: [LoggedGuard] },
+  { path: 'signup', component: SignupComponent, canActivate: [LoggedGuard] },
   { path: '**', component: ErroPageComponent },
 ];
 

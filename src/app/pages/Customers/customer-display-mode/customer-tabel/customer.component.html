@@ -1,4 +1,4 @@
-<table *ngIf="Customers.length; else noCustomers" class="table">
+<table class="table">
   <thead>
     <tr>
       <th>Num.</th>
@@ -8,12 +8,15 @@
       <th>Email</th>
       <th>ID</th>
       <th>age</th>
+      <th>Edite</th>
+      <th>Delite</th>
     </tr>
   </thead>
   <tbody>
     <tr
       *ngFor="let Customer of Customers; index as i; odd as odd"
       [ngClass]="odd ? 'alert-success' : 'bg-light'"
+      [routerLink]="['customer-delits', Customer._id]"
     >
       <td>{{ i + 1 }}</td>
       <td>{{ Customer.firstName }}</td>
@@ -22,6 +25,7 @@
       <td>{{ Customer.email }}</td>
       <td>{{ Customer.ID }}</td>
       <td>{{ Customer.birthDay | age }}</td>
+
       <td>
         <a
           class="btn btn-outline-success"
@@ -41,8 +45,3 @@
     </tr>
   </tbody>
 </table>
-<ng-template #noCustomers>
-  <div>
-    {{ "opss... no Contacts!!!" | textCapital }}
-  </div>
-</ng-template>

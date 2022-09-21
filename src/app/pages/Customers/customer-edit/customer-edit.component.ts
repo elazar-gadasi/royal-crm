@@ -11,7 +11,7 @@ import { CustomersService } from '../customers.service';
 export class CustomerEditComponent implements OnInit {
   customer: Customer | any = undefined;
   id: string | null = null;
-  createdAt: Date | void = undefined;
+  createdAt: any | void = undefined;
 
   constructor(
     private CS: CustomersService,
@@ -20,16 +20,16 @@ export class CustomerEditComponent implements OnInit {
   ) {}
 
   onSubmit(customer: Customer) {
-    customer.createdAt = this.createdAt!;
+    customer.createdAt = this.createdAt;
     customer._id = this.id!;
-    this.CS.edit(customer);
-    this.router.navigate(['/customers']);
+    // this.CS.edit(customer);
+    this.CS.edit(customer, this.id!, () => {
+      this.router.navigate(['/customers']);
+    });
   }
 
   resetForm() {
-    console.log('in reset form father');
-
-    this.CS.getCustomer(this.id!, ({ ...customer }: Customer) => {
+    this.CS.getCustomer(this.id!, (customer: Customer) => {
       this.customer = customer;
     });
   }
@@ -39,11 +39,11 @@ export class CustomerEditComponent implements OnInit {
       const id = param.get('id');
       this.id = id;
 
-      this.CS.getCustomer(id!, ({ ...customer }: Customer) => {
+      this.CS.getCustomer(id!, (customer: Customer) => {
         this.customer = customer;
         this.createdAt = customer.createdAt;
-        this.customer = customer;
       });
     });
   }
 }
+//////////////////////////

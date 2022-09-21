@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Customer } from '../customer';
 import { CustomersService } from '../customers.service';
@@ -12,8 +12,7 @@ import { CustomersService } from '../customers.service';
 export class NewCustomerComponent {
   constructor(private CS: CustomersService, private routerService: Router) {}
 
-  onSumbit(customer: Customer) {
-    this.CS.add(customer);
-    this.routerService.navigate(['/customers']);
+  onSumbit(contact: Customer) {
+    this.CS.add(contact, () => this.routerService.navigate(['/customers']));
   }
 }

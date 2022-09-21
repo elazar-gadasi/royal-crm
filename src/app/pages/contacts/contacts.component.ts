@@ -1,6 +1,3 @@
-import { Time } from '@angular/common';
-import { Timestamp } from '@angular/fire/firestore';
-import { TimeInterval } from 'rxjs';
 import { Address } from 'src/app/interfaces/address';
 
 export interface Contacts {
@@ -13,6 +10,5 @@ export interface Contacts {
   address: Address;
   notes?: string;
   ID: number;
-
   birthDay: string;
 }

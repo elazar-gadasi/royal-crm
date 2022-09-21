@@ -1,6 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 
 import { EventEmitter } from '@angular/core';
+import { Contacts } from '../../contacts.component';
 
 import { ContactsService } from '../../contacts.service';
 
@@ -10,17 +11,19 @@ import { ContactsService } from '../../contacts.service';
   styleUrls: [],
 })
 export class ContactTabelComponent {
-  @Input() Contacts: any = [];
+  @Input() Contacts: Contacts[] = [];
   @Output() onDeleteContact = new EventEmitter();
   constructor(private CS: ContactsService) {
-    this.Contacts = CS.getAll();
+    // this.Contacts = CS.getAll();
   }
 
   delideContact(e: MouseEvent, id: string) {
     e.stopPropagation();
     this.CS.delide(id);
-    this.Contacts = this.CS.getAll();
+    this.CS.getAll((contacts: Contacts[]) => {
+      this.Contacts = contacts;
 
-    this.onDeleteContact.emit(this.Contacts);
+      this.onDeleteContact.emit(this.Contacts);
+    });
   }
 }

@@ -1,0 +1,18 @@
+<div class="d-flex text-center row px-0 mx-0">
+  <span
+    *ngFor="let contact of contacts"
+    class="cursor alert-success card col-12 col-md-6 col-xl-4 col-xxl-3 mb-2 px-0"
+    [routerLink]="['contact-delits', contact._id]"
+  >
+    <b> {{ "first name " }} </b>{{ contact.firstName | titlecase }}
+    <b> {{ "last name " }} </b>{{ contact.lastName | titlecase }}
+    <br />
+    <b> {{ "email " }} </b>{{ contact.email | titlecase }} <br />
+    <b> {{ "phone " }}</b
+    >{{ contact.phone | titlecase }} <br />
+    <b> {{ "city " }} </b>{{ contact.address.city | titlecase }} <br />
+    <b> {{ "street " }} </b>{{ contact.address.street | titlecase }} <br />
+    <b> {{ "house number " }} </b>{{ contact.address.houseNumber }} <br />
+    <b> {{ "ID " }} </b>{{ contact.ID }}</span
+  >
+</div>

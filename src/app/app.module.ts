@@ -25,7 +25,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/Users/login/login.component';
 import { SignupComponent } from './pages/Users/signup/signup.component';
 
-import { CustomerComponent } from './pages/Customers/customer/customer.component';
+import { CustomerComponent } from './pages/Customers/customer-display-mode/customer-tabel/customer.component';
 import { FormsModule } from '@angular/forms';
 import { NewCustomerComponent } from './pages/Customers/new-customer/new-customer.component';
 import { CustomerFormComponent } from './pages/Customers/customer-form/customer-form.component';
@@ -44,6 +44,10 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { LoaderComponent } from './components/loader/loader.component';
+import { CustomerFoldersComponent } from './pages/Customers/customer-display-mode/customer-folders/customer-folders.component';
+import { CustomerCardsComponent } from './pages/Customers/customer-display-mode/customer-cards/customer-cards.component';
+import { ContactCardsComponent } from './pages/contacts/contacts-display-mode/contact-cards/contact-cards.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +89,10 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     SearchBarComponent,
     DisplayModeControllersComponent,
     ContactFoldersComponent,
+    LoaderComponent,
+    CustomerFoldersComponent,
+    CustomerCardsComponent,
+    ContactCardsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<div class="d-flex text-center row px-0 mx-0">
+  <span
+    *ngFor="let customer of customers"
+    class="cursor alert-success card col-12 col-md-6 col-xl-4 col-xxl-3 mb-2 px-0"
+    [routerLink]="['customer-delits', customer._id]"
+  >
+    <b> {{ "first name " }} </b>{{ customer.firstName | titlecase }}
+    <b> {{ "last name " }} </b>{{ customer.lastName | titlecase }}
+    <br />
+    <b> {{ "email " }} </b>{{ customer.email | titlecase }} <br />
+    <b> {{ "phone " }}</b
+    >{{ customer.phone | titlecase }} <br />
+    <b> {{ "city " }} </b>{{ customer.address.city | titlecase }} <br />
+    <b> {{ "street " }} </b>{{ customer.address.street | titlecase }} <br />
+    <b> {{ "house number " }} </b>{{ customer.address.houseNumber }} <br />
+    <b> {{ "ID " }} </b>{{ customer.ID }}</span
+  >
+</div>
