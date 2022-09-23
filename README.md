@@ -28,9 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Note about "environments" folder
 
-First, please download the zip file: environments.zip from here:
-
-https://www.hackampus.com/student/assignment/2955
+First, please download the zip file: environments.zip:
 
 Then, Extract this folder.
 
@@ -40,7 +38,7 @@ Third, run the project and enjoy with the testing.
 
 ## The Firebase application link:
 
-https://royal-crm-elazar-42320.web.app/
+https://royal-crm-elazar-42320.web.app
 
 Note: Perfect project without any red errors in the console!
 
