@@ -12,7 +12,6 @@ import {
   serverTimestamp,
   updateDoc,
 } from '@angular/fire/firestore';
-// import { collection } from '@firebase/firestore';
 
 import { Contacts } from './contacts.component';
 
@@ -52,13 +51,6 @@ export class ContactsService {
     deleteDoc(docRef).catch((error) => console.log(error));
   }
 
-  // delide(id: string) {
-  //   let contactIndex = this.Contacts.findIndex(
-  //     (contact: Contacts) => contact._id === id
-  //   );
-  //   if (contactIndex === -1) return;
-  //   this.Contacts.splice(contactIndex, 1);
-  // }
   async getContact(id: string, cb: Function) {
     try {
       const docRef = doc(this.Fs, 'contacts', id);

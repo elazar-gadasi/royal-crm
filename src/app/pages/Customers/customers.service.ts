@@ -12,7 +12,6 @@ import {
   updateDoc,
   serverTimestamp,
 } from '@angular/fire/firestore';
-// import { collection } from '@firebase/firestore';
 import { Customer } from './customer';
 
 @Injectable({

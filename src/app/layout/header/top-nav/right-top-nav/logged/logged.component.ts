@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { UserService } from 'src/app/pages/Users/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/pages/Users/user.service';
 })
 export class LoggedComponent {
   constructor(private US: UserService) {}
-
+  nameUser: any = this.US.showName();
   logout() {
     this.US.logout();
   }
