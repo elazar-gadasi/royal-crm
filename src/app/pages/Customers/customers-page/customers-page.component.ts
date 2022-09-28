@@ -11,6 +11,7 @@ import { CustomersService } from '../customers.service';
 })
 export class CustomersPageComponent implements OnInit {
   customerRowData: Array<Customer> = [];
+  customerData: Array<Customer> = [];
   unsubscribeGrtAll: Function = () => {};
   Customers: Array<Customer> = [];
   titel: string = 'Customers Page';
@@ -45,7 +46,8 @@ export class CustomersPageComponent implements OnInit {
   ngOnInit() {
     this.SC.getAll((customers: Customer[], unsubscribeGetAll: Function) => {
       this.customerRowData = customers;
-      this.Customers = this.customerRowData;
+      this.customerData = customers;
+      this.Customers = customers;
       this.dataReceived = true;
       this.unsubscribeGrtAll = unsubscribeGetAll;
     });

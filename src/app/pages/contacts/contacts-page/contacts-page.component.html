@@ -5,26 +5,26 @@
   [subTitel]="subTitel"
 ></page-header>
 
-<div *ngIf="dataReceived && Contacts && Contacts.length; else loader">
-  <div class="d-flex justify-content-between">
-    <div class="mt-3">
-      <a
-        class="btn btn-outline-success"
-        routerLink="new-contact"
-        role="button"
-        title="Add new contact"
-      >
-        {{ "add contact" | textCapital }}</a
-      >
-    </div>
-    <display-mode-controllers
-      [controllers]="controllers"
-      (onChangeDisplay)="onChangeDisplay($event)"
-    ></display-mode-controllers>
+<div class="d-flex justify-content-between">
+  <div class="mt-3">
+    <a
+      class="btn btn-outline-success"
+      routerLink="new-contact"
+      role="button"
+      title="Add new contact"
+    >
+      {{ "add contact" | textCapital }}</a
+    >
   </div>
-
+  <display-mode-controllers
+    *ngIf="contactData && contactData.length"
+    [controllers]="controllers"
+    (onChangeDisplay)="onChangeDisplay($event)"
+  ></display-mode-controllers>
+</div>
+<div *ngIf="dataReceived && contactData && contactData.length; else loader">
   <search-bar
-    *ngIf="Contacts && Contacts.length"
+    *ngIf="contactData && contactData.length"
     [categories]="categories"
     [array]="contactRowData"
     (onArrayFiltered)="onSearch($event)"
@@ -52,4 +52,7 @@
 </div>
 <ng-template #loader>
   <app-loader></app-loader>
+  <div>
+    {{ "If there are contacts please wait..." | textCapital }}
+  </div>
 </ng-template>

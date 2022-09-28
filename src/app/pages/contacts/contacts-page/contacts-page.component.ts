@@ -12,6 +12,7 @@ import { ContactsService } from '../contacts.service';
 export class ContactsPageComponent implements OnInit, OnDestroy {
   unsubscribeGrtAll: Function = () => {};
   contactRowData: Array<Contacts> = [];
+  contactData: Array<Contacts> = [];
   Contacts: Array<Contacts> = [];
   titel: string = 'Contacts Page';
   subTitel: string = 'this is Contacts page';
@@ -45,6 +46,7 @@ export class ContactsPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.SC.getAll((contacts: Contacts[], unsubscribeGetAll: Function) => {
       this.contactRowData = contacts;
+      this.contactData = contacts;
       this.Contacts = this.contactRowData;
       this.dataReceived = true;
       this.unsubscribeGrtAll = unsubscribeGetAll;
